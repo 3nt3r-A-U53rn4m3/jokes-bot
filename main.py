@@ -27,7 +27,7 @@ async def on_message(message):
 async def hello(ctx):
     await ctx.respond("Hello!")
 
-@bot.slash_command()
+@bot.slash_command(description="sends random (hopefully sfw) joke from api")
 async def joke(ctx):
     async with aiohttp.ClientSession() as session:
         request = await session.get('https://some-random-api.ml/joke')
@@ -35,7 +35,11 @@ async def joke(ctx):
         joke = json['joke']
     await ctx.respond(joke)
 
-@bot.slash_command()
+@bot.command(description="latency")
+async def ping(ctx):
+    await ctx.respond(f"Pong! Latency is {bot.latency}")
+
+@bot.slash_command(description="simp")
 async def simp(ctx, avatar=""):
   await ctx.send("Generating SIMP card...")
   #await ctx.trigger_typing() 

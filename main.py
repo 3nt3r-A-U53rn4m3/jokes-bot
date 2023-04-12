@@ -2,7 +2,7 @@ import discord
 from dotenv import dotenv_values
 from stuff import *
 import aiohttp, requests, shutil
-import os
+#import os
 
 DISCORD_TOKEN = dotenv_values(".env")["DISCORD_TOKEN"]
 
@@ -51,3 +51,5 @@ async def simp(ctx, avatar=""):
   await ctx.respond(file=discord.File("simp.png"))
 
 bot.run(DISCORD_TOKEN)
+
+#https://discord.com/api/oauth2/authorize?client_id=1029476450086158466&permissions=2048&scope=bot
